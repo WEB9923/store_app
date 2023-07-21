@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container{
+    @apply mx-auto px-4 h-full w-full max-w-[1300px]
+}
+.section{
+    @apply py-12
+}
+.title{
+    @apply text-2xl text-indigo-500 font-extrabold capitalize pb-10
+}
+.navLink.active{
+    @apply text-indigo-500
+    before:h-1
+    before:w-full
+    before:bg-indigo-400
+    before:absolute
+    before:bottom-0
+    before:rounded-md
+}
+.footer-title{
+    @apply text-[16px] text-gray-500 capitalize pb-1.5 font-bold
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    list-style-type:none;
+    text-decoration:none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body{
+    font-family: "Inter", sans-serif;
+    @apply bg-gray-200
+}
