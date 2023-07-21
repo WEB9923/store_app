@@ -3,6 +3,7 @@
 import Card from "../components/Card.jsx";
 import {useEffect, useState} from "react";
 import {getData} from "../services/GetData.js";
+import Loader from "../components/Loader.jsx";
 
 // faker.seed(50);
 
@@ -22,12 +23,16 @@ export default function ProductsPage() {
    //    })
    // }))
    const [products,setProducts] = useState([]);
+   const [isLoading,setIsLoading] = useState(false);
 
    const fetchData = async () => {
       try {
+         setIsLoading(true);
          return await getData();
       } catch (err) {
          console.log(err)
+      } finally {
+         setIsLoading(false);
       }
    }
    useEffect(() => {
@@ -36,16 +41,18 @@ export default function ProductsPage() {
 
    return (
       <>
-         <section className="section">
-            <div className="container">
+         <section className="section min-h-[70vh]">
+            <div className="container h-full">
                <h1 className="title">products</h1>
-               <div className="flex gap-5 flex-wrap">
-                  {products && products.map((pr) => (
-                     <Card
-                        key={pr.id}
-                        data={pr}
-                     />
-                  ))}
+               <div className="flex gap-5 flex-wrap h-full relative">
+                  {isLoading ? <Loader/> : products?.map((pr) => {
+                     return (
+                        <Card
+                           key={pr.id}
+                           data={pr}
+                        />
+                     )
+                  })}
                </div>
             </div>
          </section>
