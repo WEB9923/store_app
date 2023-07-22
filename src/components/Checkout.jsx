@@ -7,7 +7,7 @@ export default function Checkout() {
    const {handleClearCart, total} = useContext(CartContext);
    return (
       <>
-         <div className="flex-0.5 max-h-[400px] h-auto min-w-[300px] rounded-md bg-gray-300 p-3 sticky right-0 top-2">
+         <div className="flex-0.5 h-[200px] min-w-[300px] rounded-md bg-gray-300 p-3 sticky right-0 top-2">
             <div className="border-b border-gray-400 py-3">
                <h2 className="text-indigo-500 font-medium text-[20px]">
                   total:
